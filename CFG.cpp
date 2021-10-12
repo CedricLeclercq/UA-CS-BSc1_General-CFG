@@ -40,11 +40,11 @@ void CFG::print() {
     cout << "P = {" << endl;
     for (const auto& element: this->productions) {
         // Printing all replacements
-        cout << "\t" << element.first << " -> '";
+        cout << "    " << element.first << " -> `";
         for (const auto& replacement: element.second) {
             cout << replacement;
-            if (replacement != element.second.back()) cout << ", "; // Add the comma except at the end
-            else cout << "'" << endl; // Add the end of the vector to the end
+            if (replacement != element.second.back()) cout << " "; // Add the comma except at the end
+            else cout << "`" << endl; // Add the end of the vector to the end
         }
     } cout << "}" << endl;
 
