@@ -5,7 +5,7 @@
 
 int main() {
     CFG cfg;
-    //cfg.print();
+    cfg.print();
     return 0;
 
 

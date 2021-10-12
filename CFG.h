@@ -14,7 +14,7 @@ protected:
     // Member variables
     std::vector<std::string> variables;
     std::vector<std::string> terminals;
-    std::vector<std::pair<std::string, std::string>> productions;
+    std::vector<std::pair<std::string, std::vector<std::string>>> productions;
     std::string start;
 
     // Member functions
@@ -23,12 +23,11 @@ protected:
 public:
     CFG() {
         // According to the assignment, the default constructor should create the given CFG in the assignment
-
-
+        this->createExampleCFG();
     }
 
     CFG(const std::vector<std::string>& newVariables, const std::vector<std::string>& newTerminals,
-        const std::vector<std::pair<std::string, std::string>>& newProductions, const std::string& newStart) {
+        const std::vector<std::pair<std::string, std::vector<std::string>>>& newProductions, const std::string& newStart) {
        // This is a constructor to create any CFG
        this->variables = newVariables;
        this->terminals = newTerminals;
