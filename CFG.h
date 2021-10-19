@@ -5,8 +5,13 @@
 #ifndef GENERAL_CFG_CFG_H
 #define GENERAL_CFG_CFG_H
 
+#include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
+#include <json.hpp>
+using json = nlohmann::json;
+
 
 class CFG {
 protected:
@@ -26,6 +31,13 @@ public:
         this->createExampleCFG();
     }
 
+    CFG(const std::string& path) {
+        std::ifstream input(path);
+        json j;
+        input >> j;
+        this->parser(j);
+    }
+
     CFG(const std::vector<std::string>& newVariables, const std::vector<std::string>& newTerminals,
         const std::vector<std::pair<std::string, std::vector<std::string>>>& newProductions, const std::string& newStart) {
        // This is a constructor to create any CFG
@@ -35,6 +47,7 @@ public:
        this->start = newStart;
     }
     void print();
+    void parser(const json& j);
 };
 
 
